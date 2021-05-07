@@ -49,7 +49,7 @@ func AddPath(paths ...string) {
 // any error encountered
 func PathsWithModules(root string) (paths []string, err error) {
 	pm := map[string]bool{}
-	filepath.Walk(root, func(p string, info os.FileInfo, e error) error {
+	err = filepath.Walk(root, func(p string, info os.FileInfo, e error) error {
 		err = e
 		if err == nil {
 			if info == nil {
